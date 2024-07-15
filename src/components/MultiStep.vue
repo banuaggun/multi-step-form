@@ -3,7 +3,7 @@
     <div class="card-steps-container">
       <Steps />
     </div>
-    <div class="card-steps-form-details">
+    <div class="card-steps-form-details classroom">
       card
     </div>
   </div>
@@ -13,5 +13,10 @@ import Steps from './Steps.vue'
 
 </script>
 <style lang="scss">
-  
+@import "../styles/global/global.sass";
+  $bg-classroom: #ffd1fb;
+
+.classroom {
+  background: $bg-classroom;
+}
 </style>
