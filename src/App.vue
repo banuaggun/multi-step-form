@@ -13,6 +13,7 @@ export default{
 }
 </script>
 
-<style scoped>
+<style>
+@import './styles/global/global.sass';
 
 </style>
