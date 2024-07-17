@@ -13,7 +13,7 @@ export default{
 }
 </script>
 
-<style>
+<style lang="scss">
 @import './styles/global/global.sass';
 
 </style>
