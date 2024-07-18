@@ -1,5 +1,5 @@
 <template>
-  <div class="main-content">
+  <div>
     <MultiStep />
   </div>
 </template>
