@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>helo world</h1>
+  <div class="main-content">
     <MultiStep />
   </div>
 </template>
