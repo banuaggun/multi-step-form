@@ -2,10 +2,6 @@
   <div class="card">
     <div class="card-steps-container container">
       <Steps v-for="step in steps" :key="step" :stepProp="step" />
-    <span>alt baslık</span>
-    </div>
-    <div class="card-steps-form-details classroom">
-      card
     </div>
   </div>
 </template>
@@ -36,11 +32,11 @@ const steps = [
 ]
 </script>
 <style lang="scss">
-//@import "../styles/global/global.sass";
-  $bg-classroom: #ffd1fb;
+@import "../styles/global/global.sass";
+ // $bg-classroom: #ffd1fb;
 
-.classroom {
-  background: $bg-classroom;
-}
+//.classroom {
+ // background: $bg-classroom;
+//}
 
 </style>

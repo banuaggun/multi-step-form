@@ -1,9 +1,11 @@
 <template>
   <div class="steps">
-    <div class="steps-content steps-dot">
-      {{stepProp.id}}
-    </div>
-      <div class="steps-dot-details">
+
+    <div class="steps-content">
+      <div class="steps-content-dot">
+        {{stepProp.id}}
+      </div>
+      <div class="steps-content-dot-details">
         <span>
           {{stepProp.title}}
         </span>
@@ -11,6 +13,7 @@
           {{stepProp.stepTitle}}
         </p>
       </div>
+    </div>
   </div>
 </template>
 <script setup>

@@ -4,13 +4,73 @@
   padding:0
   box-sizing: border-box
 
+body
+  background-color: $alice-blue
+  font-size: 1rem
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+
+.btn
+  padding:12px 24px
+  outline: none
+  border: none
+  background: $turquoise
+  color: $white
+  border-radius: 4px
+  cursor: pointer
+  transition: all 0.3s
+
+  &:hover
+    background: $lapis-lazuli
+
 #app
   width:100%
-  height:100%
+  height:100vh
+  display: flex
+  align-items: center
+  justify-content: center
   
 .card
-  margin:40px 10px
-  border:1px solid $cardinal
+  height:550px
+  width:800px
+  background-color: $ghost-white
+  border-radius: 16px
+  box-shadow: 0 4px 30px 5px hsla(0, 0%, 0%, 0.08)
+  padding:10px
   &-steps-container
-    background-color: $lapis-lazuli
+    width:260px
+    height:100%
+    border-radius: 10px
+    background: linear-gradient(105deg, $lapis-lazuli, $alice-blue)
+    padding:30px
+
+.steps
     
+    &-content
+      display: flex
+      align-items: center
+      gap:20px
+      margin:0 auto 30px auto
+      border:1px solid $alice-blue
+      &-dot
+        width:36px
+        height:36px
+        border-radius: 50%
+        background-color: $lapis-lazuli
+        border:1px solid $alice-blue
+        display: flex
+        align-items: center
+        justify-content: center
+        color:$white
+        font-weight: bold
+        &-details
+          text-transform: uppercase
+          text-align: left
+          span 
+            color:$ghost-white
+            font-size:1rem
+          p 
+            color: $white
+            font-size:1rem
+            font-weight:600
+            margin:4px 5px
