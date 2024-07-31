@@ -37,6 +37,9 @@ body
   border-radius: 16px
   box-shadow: 0 4px 30px 5px hsla(0, 0%, 0%, 0.08)
   padding:10px
+  display: grid
+  grid-template-columns: 260px 1fr
+
   &-steps-container
     width:260px
     height:100%
@@ -44,8 +47,8 @@ body
     background: linear-gradient(105deg, $lapis-lazuli, $alice-blue)
     padding:30px
 
-.steps
-    
+.steps 
+  
     &-content
       display: flex
       align-items: center
@@ -74,3 +77,7 @@ body
             font-size:1rem
             font-weight:600
             margin:4px 5px
+    
+    &-description
+      h1
+        font-size: 2rem

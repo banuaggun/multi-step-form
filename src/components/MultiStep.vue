@@ -3,9 +3,13 @@
     <div class="card-steps-container container">
       <Steps v-for="step in steps" :key="step" :stepProp="step" />
     </div>
+    <div class="card-form-details">
+      <PersonalInfo />
+    </div>
   </div>
 </template>
 <script setup>
+import PersonalInfo from './PersonalInfo.vue'
 import Steps from './Steps.vue'
 
 const steps = [
