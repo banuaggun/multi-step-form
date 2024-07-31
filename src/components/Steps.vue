@@ -1,9 +1,9 @@
 <template>
   <div class="steps">
-    <div class="steps-1 dot">
+    <div class="steps-content steps-dot">
       {{stepProp.id}}
     </div>
-      <div class="dot-details">
+      <div class="steps-dot-details">
         <span>
           {{stepProp.title}}
         </span>
@@ -18,6 +18,3 @@ const props = defineProps({
   stepProp: Object
 })
 </script>
-<style lang="">
-  
-</style>
