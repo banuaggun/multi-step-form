@@ -1,4 +1,6 @@
 @import '../utils/_variables.sass'
+@import '../global/buttons.sass'
+
 *, html
   margin:0
   padding:0
@@ -9,19 +11,9 @@ body
   font-size: 1rem
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 
-
-.btn
-  padding:12px 24px
-  outline: none
-  border: none
-  background: $turquoise
-  color: $white
-  border-radius: 4px
-  cursor: pointer
-  transition: all 0.3s
-
-  &:hover
-    background: $lapis-lazuli
+button
+  border:none
+  outline: 0
 
 #app
   width:100%
@@ -49,6 +41,7 @@ body
 
   &-form-details
     padding: 10px 50px
+    position: relative
 
 .steps 
   
@@ -115,3 +108,14 @@ body
     color: $lapis-lazuli
     font-weight: 500
     margin-bottom: 5px
+
+
+.form-buttons
+  position: absolute
+  right:0
+  bottom:15px
+  padding:0 50px
+  width:100%
+  display: flex
+  align-items: center
+  justify-content: space-between
