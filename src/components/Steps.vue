@@ -3,7 +3,11 @@
 
     <div class="steps-content">
       <div class="steps-content-dot">
-        {{stepProp.id}}
+        <div class="steps-content-dot-number">
+          <span>
+            {{stepProp.id}}
+          </span>
+        </div>
       </div>
       <div class="steps-content-dot-details">
         <span>
