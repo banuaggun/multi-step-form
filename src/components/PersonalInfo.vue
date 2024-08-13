@@ -6,15 +6,15 @@
   <form>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" id="name" v-model="name" placeholder="Aria Doe">
+      <input class="form-group-input" type="text" id="name" v-model="name" placeholder="Aria Doe">
     </div>
     <div class="form-group">
       <label for="name">Email Address</label>
-      <input type="text" id="email" v-model="name" placeholder="Aria Doe">
+      <input class="form-group-input" type="text" id="email" v-model="name" placeholder="Aria Doe">
     </div>
     <div class="form-group">
       <label for="name">Phone Number</label>
-      <input type="number" id="number" v-model="name" placeholder="Aria Doe">
+      <input class="form-group-input" type="number" id="number" v-model="name" placeholder="Aria Doe">
     </div>
     <div class="form-buttons">
       <button style="visibility:hidden">Go Back</button>
