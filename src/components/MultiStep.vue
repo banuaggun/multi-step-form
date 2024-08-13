@@ -4,15 +4,14 @@
       <Steps v-for="step in steps" :key="step" :stepProp="step" />
     </div>
     <div class="card-form-details">
-      <!--
-      <PersonalInfo />
-      -->
+    
       <PlansInfo />
     </div>
+
   </div>
 </template>
 <script setup>
-import PersonalInfo from './PersonalInfo.vue'
+//import PersonalInfo from './PersonalInfo.vue'
 import PlansInfo from './PlansInfo.vue'
 import Steps from './Steps.vue'
 
