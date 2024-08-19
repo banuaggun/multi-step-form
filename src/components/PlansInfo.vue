@@ -8,7 +8,7 @@
     <div class="form-group-select">
 
       <div class="form-group-select-radio" v-for="item in planList" :key="item.id">
-        <input type="radio" class="form-group-select-radio-input" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
+        <input type="radio" class="form-group-select-radio-input selected" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
           <label :for="item.inputID" class="form-group-select-radio-ui">
             <img :src="item.planImage" :alt="item.planName">
             
@@ -38,7 +38,7 @@ const planList = ref([
       monthly:9,
       yearly:9*(12-2)
     },
-    planImage:'src/assets/vue.svg',
+    planImage:'src/assets/images/arcade.svg',
     inputID:'arcade'
   },
   {
@@ -48,7 +48,7 @@ const planList = ref([
       monthly:12,
       yearly:9*(12-2)
     },
-    planImage:'src/assets/vue.svg',
+    planImage:'src/assets/images/advanced.svg',
     inputID:'advanced'
   },
   {
@@ -58,7 +58,7 @@ const planList = ref([
       monthly:15,
       yearly:9*(12-2)
     },
-    planImage:'src/assets/vue.svg',
+    planImage:'src/assets/images/pro.svg',
     inputID:'pro'
   }
 ])
@@ -77,13 +77,13 @@ const planList = ref([
 
       &-input{
         position:absolute;
-        width:100%;
-        height:100%;
-        left:0;
-        top:0;
+        width:24px;
+        height:24px;
+        right:12px;
+        top:12px;
         z-index:2;
         cursor:pointer;
-        opacity:0;
+        content: "\25cb";
       }
 
       &-ui{
@@ -97,8 +97,8 @@ const planList = ref([
         justify-content:space-between;
 
         img{
-          width:35px;
-          height:35px;
+          width:40px;
+          height:40px;
         }
 
         &-text{
@@ -119,9 +119,11 @@ const planList = ref([
 
   }
 
-  .form-group-select-radio-input:checked{
+  input.form-group-select-radio-input, .selected{
       border:1px solid $lapis-lazuli;
-      background-color:$alice-blue;
+      background-color:$lapis-lazuli;
+      content: "\f058";
+      color:$white;
     }
 
 </style>
