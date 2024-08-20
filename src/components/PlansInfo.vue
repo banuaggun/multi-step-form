@@ -23,7 +23,21 @@
       </div>
 
     </div>
+
+    <div class="form-group-bill-plan">
+      <div class="form-group-bill-plan-checkbox">
+        <p>Monthly</p>
+        <input type="checkbox" class="check trigger">
+        <span class="checkbox"></span>
+        <p>Yearly</p>
+      </div>
+    </div>
       
+    <div class="form-buttons">
+      <button class="form-buttons-btn-s
+      econdary">Go Back</button>
+      <button class="form-buttons-btn form-buttons-btn-primary">Next step</button>
+    </div>
   </form>
 </template>
 <script setup>
@@ -83,7 +97,7 @@ const planList = ref([
         top:12px;
         z-index:2;
         cursor:pointer;
-        content: "\25cb";
+        opacity:0;
       }
 
       &-ui{
@@ -95,6 +109,7 @@ const planList = ref([
         display:flex;
         flex-direction:column;
         justify-content:space-between;
+        cursor:pointer;
 
         img{
           width:40px;
@@ -102,14 +117,14 @@ const planList = ref([
         }
 
         &-text{
+          color:$lapis-lazuli;
           p{
             font-weight:bold;
-            color:$lapis-lazuli;
             margin-bottom:3px;
           }
           span{
-            color:$turquoise;
             font-size:14px;
+            font-weight:400;
           }
         }
       }
@@ -119,11 +134,59 @@ const planList = ref([
 
   }
 
-  input.form-group-select-radio-input, .selected{
-      border:1px solid $lapis-lazuli;
-      background-color:$lapis-lazuli;
-      content: "\f058";
-      color:$white;
+  input:checked ~ .form-group-select-radio-ui{
+    background-color:$alice-blue;
+    border:1px solid $lapis-lazuli;
+    color:$white;
+  }
+
+  .form-group-bill-plan{
+    display:flex;
+    justify-content:center;
+    padding:10px 0;
+    background:$lavender-web;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 1px $cool-gray;
+
+    &-checkbox{
+      display:flex;
+      gap:15px;
+      cursor:pointer;
+
+      .checkbox{
+        position:relative;
+        height:20px;
+        width:35px;
+        background:$lapis-lazuli;
+        border-radius:20px;
+
+        &:before{
+          content:'';
+          position:absolute;
+          height:12px;
+          width:12px;
+          border-radius:100%;
+          background:$white;
+          left:3px;
+          top:50%;
+          transform:translateY(-50%);
+          transition:0.2s ease;
+        }
+      }
+
+      .check{
+        opacity:0;
+        height:1px;
+        width:1px;
+        position:absolute;
+        top:0;
+        left:0;
+      }
     }
+  }
+
+  input.check:checked ~ .checkbox{
+    transform: translate(17px, -50%);
+  }
 
 </style>
