@@ -17,8 +17,12 @@
       <input class="form-group-input" type="number" id="number" v-model="name" placeholder="Aria Doe">
     </div>
     <div class="form-buttons">
-      <button style="visibility:hidden">Go Back</button>
-      <button class="form-buttons-btn form-buttons-btn-primary">Next step</button>
+      <button class="form-buttons-btn form-buttons-btn-secondary" style="visibility:hidden;">
+        Go Back
+      </button>
+      <button class="form-buttons-btn form-buttons-btn-primary">
+        Next step
+      </button>
     </div>
   </form>
 </template>

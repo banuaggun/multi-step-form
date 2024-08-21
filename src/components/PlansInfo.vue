@@ -34,9 +34,12 @@
     </div>
       
     <div class="form-buttons">
-      <button class="form-buttons-btn-s
-      econdary">Go Back</button>
-      <button class="form-buttons-btn form-buttons-btn-primary">Next step</button>
+      <button class="form-buttons-btn-secondary">
+        Go Back
+      </button>
+      <button class="form-buttons-btn form-buttons-btn-primary">
+        Next step
+      </button>
     </div>
   </form>
 </template>

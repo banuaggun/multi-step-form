@@ -5,7 +5,12 @@
     </div>
     <div class="card-form-details">
     
+    <!--
+      <PersonalInfo />
+    -->
+    
       <PlansInfo />
+    
     </div>
 
   </div>
