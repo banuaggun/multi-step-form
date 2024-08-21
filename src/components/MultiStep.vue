@@ -8,16 +8,18 @@
     <!--
       <PersonalInfo />
     -->
-    
+    <!--
       <PlansInfo />
-    
+    -->
+    <AddOnsInfo />
     </div>
 
   </div>
 </template>
 <script setup>
 //import PersonalInfo from './PersonalInfo.vue'
-import PlansInfo from './PlansInfo.vue'
+//import PlansInfo from './PlansInfo.vue'
+import AddOnsInfo from './AddOnsInfo.vue'
 import Steps from './Steps.vue'
 
 const steps = [
