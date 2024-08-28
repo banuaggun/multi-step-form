@@ -4,16 +4,16 @@
     <p>Add-ons help enhance your going experiment.</p>
   </div>
   <form>
-    <div class="form-group-check">
+    <div class="form-group-check" v-for="item in addOnsList" :key="item.id">
       <label class="form-group-check-container">
         <input type="checkbox">
         <span class="checkbox-icon"></span>
         <div class="form-group-check-container-adds-details">
           <div class="form-group-check-container-adds-details-text">
-            <p>Online Service</p>
-            <span>Access to multi player games</span>
+            <p>{{item.addName}}</p>
+            <span>{{item.description}}</span>
           </div>
-          <p class="form-group-check-container-adds-details-price">$1/mo</p>
+          <p class="form-group-check-container-adds-details-price">${{item.planPrice.monthly}}/mo</p>
         </div>
       </label>
     </div>
@@ -27,9 +27,46 @@
     </div>
   </form>
 </template>
+
 <script setup>
 
+const addOnsList = [
+  {
+    id:1,
+    addName:'Online Service',
+    addValue:'ao1',
+    addCode:'onlineService',
+    description:'Access to multiplayer games',
+    planPrice:{
+      monthly:1,
+      yearly:1*(12-2)
+    }
+  },
+  {
+    id:2,
+    addName:'Larger Storage',
+    addValue:'ao2',
+    addCode:'largerStorage',
+    description:'Extra 1TB of cloud save',
+    planPrice:{
+      monthly:2,
+      yearly:2*(12-2)
+    }
+  },
+  {
+    id:3,
+    addName:'Customizable Profile',
+    addValue:'ao3',
+    addCode:'customizableProfile',
+    description:'Custom theme on your profile',
+    planPrice:{
+      monthly:2,
+      yearly:2*(12-2)
+    }
+  }
+]
 </script>
+
 <style lang="scss">
 @import '../styles/global/global.sass';
 
