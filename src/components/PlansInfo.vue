@@ -1,44 +1,46 @@
 <template>
-  <div class="steps-description">
+  <div class="card-form-details-description">
     <h1>Select Your Plan</h1>
     <p>You have the option of monthly or yearly billing.</p>
   </div>
   <form>
 
-    <div class="form-group-select">
+    <div class="forms">
 
-      <div class="form-group-select-radio" v-for="item in planList" :key="item.id">
-        <input type="radio" class="form-group-select-radio-input selected" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
-          <label :for="item.inputID" class="form-group-select-radio-ui">
-            <img :src="item.planImage" :alt="item.planName">
+      <div class="forms-area-select" v-for="item in planList" :key="item.id">
+
+        <input type="radio" class="forms-area-select-input" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
+        <label :for="item.inputID" class="forms-area-select-label">
+
+          <img :src="item.planImage" :alt="item.planName" class="forms-area-label-image">
             
-            <div class="form-group-select-radio-ui-text">
-              <p>{{item.planName}}</p>
-              <span>{{item.planPrice.monthly}}/mo</span>
-            </div>
-          </label>
-
-        
-        
+          <div class="forms-area-select-label-text">
+            <p>{{item.planName}}</p>
+            <span>{{item.planPrice.monthly}}/mo</span>
+          </div>
+        </label>
+  
       </div>
 
     </div>
 
-    <div class="form-group-bill-plan">
-      <div class="form-group-bill-plan-checkbox">
+    <div class="form-group-bill-plan forms-group">
+      <div class="form-group-bill-plan-checkbox forms-group-checkbox">
         <p>Monthly</p>
-        <input type="checkbox" class="check trigger">
-        <span class="checkbox"></span>
+        <div class="switch">
+          <input id="switch-1" type="checkbox" class="switch-input" />
+          <label for="switch-1" class="switch-label">Switch</label>
+        </div>
         <p>Yearly</p>
       </div>
     </div>
       
-    <div class="form-buttons">
-      <button class="form-buttons-btn-secondary">
-        Go Back
+    <div class="forms-buttons">
+      <button class="forms-buttons-secondary forms-buttons-btn">
+        Back
       </button>
-      <button class="form-buttons-btn form-buttons-btn-primary">
-        Next step
+      <button class="forms-buttons-primary forms-buttons-btn">
+        Next
       </button>
     </div>
   </form>
@@ -80,49 +82,63 @@ const planList = ref([
   }
 ])
 </script>
+
 <style lang="scss">
 @import "../styles/global/global.sass";
 
-  .form-group-select{
-    display:flex;
-    justify-content: space-between;
-    margin-bottom:30px;
+form{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom:0;
+  height:100%;
 
-    &-radio{
-      position:relative;
+  .forms{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-bottom:20px;
+    margin-top:20px;
+
+    &-area-select{
+      border:1px solid $lapis-lazuli;
+      position: relative;
+      height:150px;
+      width:130px;
       cursor:pointer;
+      border-radius:8px;
 
       &-input{
         position:absolute;
         width:24px;
         height:24px;
-        right:12px;
         top:12px;
-        z-index:2;
-        cursor:pointer;
+        right:12px;
         opacity:0;
       }
 
-      &-ui{
-        height:150px;
-        width:130px;
-        border:1px solid $beige;
-        padding:12px;
+      &-label{
         border-radius:8px;
+        width:100%;
+        height:100%;
         display:flex;
         flex-direction:column;
         justify-content:space-between;
-        cursor:pointer;
 
         img{
           width:40px;
           height:40px;
+          padding-top:8px;
+          padding-left:8px;
         }
 
         &-text{
-          color:$lapis-lazuli;
+          color:$text-color;
+          padding-left:8px;
+          padding-bottom:8px;
           p{
-            font-weight:bold;
+            font-weight:600;
             margin-bottom:3px;
           }
           span{
@@ -131,65 +147,94 @@ const planList = ref([
           }
         }
       }
-
-      
     }
 
-  }
-
-  input:checked ~ .form-group-select-radio-ui{
-    background-color:$alice-blue;
-    border:1px solid $lapis-lazuli;
-    color:$white;
-  }
-
-  .form-group-bill-plan{
-    display:flex;
-    justify-content:center;
-    padding:10px 0;
-    background:$lavender-web;
-    border-radius: 8px;
-    box-shadow: 0 2px 2px 1px $cool-gray;
-
-    &-checkbox{
+    &-group{
       display:flex;
-      gap:15px;
-      cursor:pointer;
+      justify-content:center;
+      background-color:$alice-blue;
+      //box-shadow: 0 2px 2px 1px $cool-gray;
+      border-radius:8px;
+      padding:10px 0;
 
-      .checkbox{
-        position:relative;
-        height:20px;
-        width:35px;
-        background:$lapis-lazuli;
-        border-radius:20px;
+      &-checkbox{
+        display:flex;
+        align-items:center;
+        gap:16px;
+        cursor:pointer;
 
-        &:before{
-          content:'';
-          position:absolute;
-          height:12px;
-          width:12px;
-          border-radius:100%;
-          background:$white;
-          left:3px;
-          top:50%;
-          transform:translateY(-50%);
-          transition:0.2s ease;
+        .switch {
+          position: relative;
+          display: inline-block;
         }
-      }
+        
+        .switch-input {
+          display: none;
+        }
 
-      .check{
-        opacity:0;
-        height:1px;
-        width:1px;
-        position:absolute;
-        top:0;
-        left:0;
+        .switch-label {
+          display: block;
+          width: 48px;
+          height: 24px;
+          text-indent: -150%;
+          clip: rect(0 0 0 0);
+          color: transparent;
+          user-select: none;
+        }
+
+        .switch-label::before,
+        .switch-label::after {
+          content: "";
+          display: block;
+          position: absolute;
+          cursor: pointer;
+        }
+
+        .switch-label::before {
+          width: 100%;
+          height: 100%;
+          background-color: $light-beige;
+          border-radius: 9999em;
+          -webkit-transition: background-color 0.25s ease;
+          transition: background-color 0.25s ease;
+        }
+
+        .switch-label::after {
+          top: 0;
+          left: 0;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: $ghost-white;
+          border:0.5px solid $cool-gray;
+          box-shadow: 0 0 2px $cool-gray;
+          -webkit-transition: left 0.25s ease;
+          transition: left 0.25s ease;
+        }
+
+        .switch-input:checked + .switch-label::before {
+          background-color: $stone-1;
+        }
+
+        .switch-input:checked + .switch-label::after {
+          left: 24px;
+        }
+
       }
     }
-  }
 
-  input.check:checked ~ .checkbox{
-    transform: translate(17px, -50%);
+    &-buttons{
+      width:100%;
+      display:flex;
+      justify-content: space-between;
+      align-content:flex-end;
+      align-items:center;
+    }
   }
+}
 
+input:checked ~ .forms-area-select-label{
+  background-color:$alice-blue;
+  color:$white;
+}
 </style>
