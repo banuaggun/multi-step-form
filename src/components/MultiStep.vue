@@ -1,26 +1,31 @@
 <template>
   <div class="card">
-    <div class="card-steps-container container">
+    <div class="card-steps-container">
       <Steps v-for="step in steps" :key="step" :stepProp="step" />
     </div>
     <div class="card-form-details">
     
-    <!--
+<!--
       <PersonalInfo />
+  -->
+    
+      <PlansInfo />
+    <!--
+    <AddOnsInfo />
     -->
     <!--
-      <PlansInfo />
+    <Summary />
     -->
-    <AddOnsInfo />
     </div>
 
   </div>
 </template>
 <script setup>
 //import PersonalInfo from './PersonalInfo.vue'
-//import PlansInfo from './PlansInfo.vue'
-import AddOnsInfo from './AddOnsInfo.vue'
+import PlansInfo from './PlansInfo.vue'
+//import AddOnsInfo from './AddOnsInfo.vue'
 import Steps from './Steps.vue'
+//import Summary from './Summary.vue'
 
 const steps = [
   {
@@ -52,5 +57,50 @@ const steps = [
 //.classroom {
  // background: $bg-classroom;
 //}
+
+.card{
+  height:550px;
+  width:800px;
+  background-color: $white-2;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px 5px hsla(0, 0%, 0%, 0.08);
+  padding:10px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+
+  &-steps-container{
+    width:260px;
+    height:100%;
+    border-radius:10px;
+    background-image: url('src/assets/images/bg.svg');
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    align-content:center;
+    justify-content:center;
+    background-size: cover;
+  }
+
+  &-form-details{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    padding:10px 50px 40px 50px;
+
+    &-description{
+      padding-top:25px;
+
+      h1{
+        margin-bottom:10px;
+      }
+
+      p{
+        color:$black;
+        font-size:1rem;
+        margin-bottom:0px;
+      }
+    }
+  }
+}
 
 </style>

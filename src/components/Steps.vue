@@ -29,11 +29,11 @@ const props = defineProps({
 @import "../styles/global/global.sass";
 
 .steps{
+  width:calc(100% - 60px);
   background:$white-2;
   border-radius:12px;
-  margin:16px 30px;
-  display:flex;
-  align-items:center;
+  margin:8px 30px;
+  justify-content:center;
 
   &-content{
     display:flex;
