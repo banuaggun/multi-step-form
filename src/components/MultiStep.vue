@@ -9,23 +9,28 @@
       <PersonalInfo />
   -->
     
+    <!--
       <PlansInfo />
+      -->
+    
     <!--
     <AddOnsInfo />
     -->
     <!--
     <Summary />
-    -->
+  -->
+  <Message />
     </div>
 
   </div>
 </template>
 <script setup>
 //import PersonalInfo from './PersonalInfo.vue'
-import PlansInfo from './PlansInfo.vue'
+//import PlansInfo from './PlansInfo.vue'
 //import AddOnsInfo from './AddOnsInfo.vue'
 import Steps from './Steps.vue'
 //import Summary from './Summary.vue'
+import Message from './Message.vue'
 
 const steps = [
   {
@@ -52,11 +57,6 @@ const steps = [
 </script>
 <style lang="scss">
 @import "../styles/global/global.sass";
- // $bg-classroom: #ffd1fb;
-
-//.classroom {
- // background: $bg-classroom;
-//}
 
 .card{
   height:550px;
