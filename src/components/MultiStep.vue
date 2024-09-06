@@ -1,13 +1,14 @@
 <template>
+<h1>{{$store.state.currentStep}}</h1>
   <div class="card">
     <div class="card-steps-container">
       <Steps v-for="step in steps" :key="step" :stepProp="step" />
     </div>
     <div class="card-form-details">
     
-<!--
+
       <PersonalInfo />
-  -->
+
     
     <!--
       <PlansInfo />
@@ -19,18 +20,20 @@
     <!--
     <Summary />
   -->
+  <!--
   <Message />
+  -->
     </div>
 
   </div>
 </template>
 <script setup>
-//import PersonalInfo from './PersonalInfo.vue'
+import PersonalInfo from './PersonalInfo.vue'
 //import PlansInfo from './PlansInfo.vue'
 //import AddOnsInfo from './AddOnsInfo.vue'
 import Steps from './Steps.vue'
 //import Summary from './Summary.vue'
-import Message from './Message.vue'
+//import Message from './Message.vue'
 
 const steps = [
   {

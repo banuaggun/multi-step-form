@@ -38,7 +38,7 @@
 </script>
 
 <style lang="scss">
-@import "../styles/global/deneme.sass";
+@import "../styles/global/global.sass";
 
 form{
   display:flex;
