@@ -1,39 +1,32 @@
 <template>
-<h1>{{$store.state.currentStep}}</h1>
+<h1>{{$store.state.currentStep}} {{$store.state.newUser.formName.name}}</h1>
   <div class="card">
     <div class="card-steps-container">
       <Steps v-for="step in steps" :key="step" :stepProp="step" />
     </div>
     <div class="card-form-details">
     
+      <PersonalInfo v-if="$store.state.currentStep === 1" />
 
-      <PersonalInfo />
+      <PlansInfo v-if="$store.state.currentStep === 2" />
 
-    
-    <!--
-      <PlansInfo />
-      -->
-    
-    <!--
-    <AddOnsInfo />
-    -->
-    <!--
-    <Summary />
-  -->
-  <!--
-  <Message />
-  -->
+      <AddOnsInfo v-if="$store.state.currentStep === 3" />
+
+      <Summary v-if="$store.state.currentStep === 4" />
+
+      <Message v-if="$store.state.currentStep === 5" />
+
     </div>
 
   </div>
 </template>
 <script setup>
 import PersonalInfo from './PersonalInfo.vue'
-//import PlansInfo from './PlansInfo.vue'
-//import AddOnsInfo from './AddOnsInfo.vue'
+import PlansInfo from './PlansInfo.vue'
+import AddOnsInfo from './AddOnsInfo.vue'
 import Steps from './Steps.vue'
-//import Summary from './Summary.vue'
-//import Message from './Message.vue'
+import Summary from './Summary.vue'
+import Message from './Message.vue'
 
 const steps = [
   {
