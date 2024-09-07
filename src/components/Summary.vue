@@ -9,46 +9,51 @@
         <div class="forms-area-summary-select">
           <div class="bill-state">
             <div>
-              <p>
-                Arcade
-                <span>(Monthly)</span>
+              <p class="bill">
+                {{$store.state.newUser.formPlan.planName}}
+                <span v-if="!$store.state.newUser.formBill">(Monthly)</span>
+                <span v-if="$store.state.newUser.formBill">(Yearly)</span>
               </p>
-              <a role="button">Change</a>
+              <a role="button" @click="goStep2">Change</a>
             </div>
-            <div class="bill-state-price">$9/mo</div>
+            <div class="bill-state-price" v-if="!$store.state.newUser.formBill">
+              ${{$store.state.newUser.formPlan.planPrice.monthly}}/mo
+            </div>
+            <div class="bill-state-price" v-if="$store.state.newUser.formBill">
+              ${{$store.state.newUser.formPlan.planPrice.yearly}}
+            </div>
           </div>
           
-          <div class="add-ons">
+          <div class="add-ons" v-for="item in $store.state.newUser.addOns" :key="item.id">
             <p class="add-ons-name">
-              Online Service
+              {{item.addName}}
             </p>
-            <p class="add-ons-price">
-              +$1/mo
+            <p class="add-ons-price" v-if="!$store.state.newUser.formBill">
+              ${{item.planPrice.monthly}}/mo
             </p>
-          </div>
-
-          <div class="storage">
-            <p class="storage-name">
-              Larger Storage
-            </p>
-            <p class="storage-price">
-              +$2/mo
+            <p class="add-ons-price" v-if="$store.state.newUser.formBill">
+              ${{item.planPrice.yearly}}/yr
             </p>
           </div>
-
           
         </div>
         <div class="total">
-            <span>Total (per month)</span>
-            <p>+$12/mo</p>
-          </div>
+          <span v-if="!$store.state.newUser.formBill">Total (per month)</span>
+          <span v-if="$store.state.newUser.formBill">Total (per year)</span>
+          <p v-if="!$store.state.newUser.formBill">
+            +${{overallMonth}}/mo
+          </p>
+          <p v-if="$store.state.newUser.formBill">
+            +${{overallYear}}/yr
+          </p>
+        </div>
       </div>
 
       <div class="forms-buttons">
-        <button class="forms-buttons-secondary forms-buttons-btn">
+        <button class="forms-buttons-secondary forms-buttons-btn" @click="handleReturn">
           Back
         </button>
-        <button class="forms-buttons-primary forms-buttons-btn">
+        <button class="forms-buttons-primary forms-buttons-btn" @click="handleMessage">
           Confirm
         </button>
       </div>
@@ -56,7 +61,39 @@
   </form>
 </template>
 <script setup>
+import store from "../store"
+
+
+const goStep2 = () => {
+  store.state.currentStep = 2
+  store.state.isFinished = false
+}
+
+let totalSumMonth = store.state.newUser.addOns.map(item => item.planPrice.monthly)
+let totalSumYear = store.state.newUser.addOns.map(item => item.planPrice.yearly)
+
+const totalMonth = totalSumMonth.reduce((a, b) => {
+  return (a + b)
+}, 0)
+
+const totalYear = totalSumYear.reduce((a, b) => {
+  return (a + b)
+})
+
+const overallMonth = totalMonth + store.state.newUser.formPlan.planPrice.monthly
+const overallYear = totalYear + store.state.newUser.formPlan.planPrice.yearly
+
+const handleReturn = () => {
+  store.state.currentStep--
+  store.state.isConfirm = false
+}
+
+const handleMessage = () => {
+  store.state.isConfirm = true
+  store.state.isFinished = false
+}
 </script>
+
 <style lang="scss">
 @import '../styles/global/global.sass';
 

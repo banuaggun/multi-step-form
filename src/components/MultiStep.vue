@@ -12,9 +12,9 @@
 
       <AddOnsInfo v-if="$store.state.currentStep === 3" />
 
-      <Summary v-if="$store.state.currentStep === 4" />
+      <Summary v-if="$store.state.isFinished" />
 
-      <Message v-if="$store.state.currentStep === 5" />
+      <Message v-if="$store.state.isConfirm" />
 
     </div>
 

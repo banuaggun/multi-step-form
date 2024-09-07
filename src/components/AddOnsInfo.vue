@@ -85,6 +85,7 @@ const addOns = computed({
 
 const validateStep = () => {
   store.state.currentStep++
+  store.state.isFinished = true
 }
 </script>
 
