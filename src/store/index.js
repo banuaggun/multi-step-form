@@ -26,8 +26,34 @@ export default createStore({
         planImage:'src\assets\images\arcade.svg',
         inputID:'arcade'
       },
-      formBill:false
-    }
+      formBill:false,
+      addOns:[
+        {
+          id:1,
+          addName:'Online Service',
+          addValue:'ao1',
+          addCode:'onlineService',
+          description:'Access to multiplayer games',
+          planPrice:{
+            monthly:1,
+            yearly:1*(12-2)
+          }
+        },
+        {
+          id:2,
+          addName:'Larger Storage',
+          addValue:'ao2',
+          addCode:'largerStorage',
+          description:'Extra 1TB of cloud save',
+          planPrice:{
+            monthly:2,
+            yearly:2*(12-2)
+          }
+        }
+      ]
+    },
+    isFinished:false,
+    isConfirm:false
   },
   getters:{},
   mutations:{
@@ -45,6 +71,9 @@ export default createStore({
     },
     setFormBill(state, newFormBill){
       state.newUser.formBill = newFormBill
+    },
+    setAddOns(state, setAdds){
+      state.newUser.addOns = setAdds
     }
   },
   actions:{},

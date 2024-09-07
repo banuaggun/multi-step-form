@@ -3,19 +3,20 @@
     <h1>Pick Add-Ons</h1>
     <p>Add-ons help enhance your going experiment.</p>
   </div>
-  <form>
+  <form @submit.prevent="validateStep">
     <div class="forms">
 
     <div class="forms-area-check" v-for="item in addOnsList" :key="item.id">
-      <label class="forms-area-check-container">
-        <input type="checkbox">
+      <label class="forms-area-check-container" :for="item.addCode">
+        <input type="checkbox" :id="item.addCode" :value="item" v-model="addOns" />
         <span class="checkbox-icon"></span>
         <div class="forms-area-check-container-adds-details">
           <div class="forms-area-check-container-adds-details-text">
             <p>{{item.addName}}</p>
             <span>{{item.description}}</span>
           </div>
-          <p class="forms-area-check-container-adds-details-price">${{item.planPrice.monthly}}/mo</p>
+          <p v-if="!$store.state.newUser.formBill"  class="forms-area-check-container-adds-details-price">${{item.planPrice.monthly}}/mo</p>
+          <p v-if="$store.state.newUser.formBill" class="forms-area-check-container-adds-details-price">${{item.planPrice.yearly}}</p>
         </div>
       </label>
     </div>
@@ -23,7 +24,7 @@
     </div>
 
     <div class="forms-buttons">
-      <button class="forms-buttons-secondary forms-buttons-btn">
+      <button @click="$store.state.currentStep--" class="forms-buttons-secondary forms-buttons-btn">
         Back
       </button>
       <button class="forms-buttons-primary forms-buttons-btn">
@@ -34,6 +35,8 @@
 </template>
 
 <script setup>
+import store from '../store'
+import { computed } from "vue"
 
 const addOnsList = [
   {
@@ -70,6 +73,19 @@ const addOnsList = [
     }
   }
 ]
+
+const addOns = computed({
+  get(){
+    return store.state.newUser.addOns
+  },
+  set(newAdds){
+    return store.commit('setAddOns', newAdds)
+  }
+})
+
+const validateStep = () => {
+  store.state.currentStep++
+}
 </script>
 
 <style lang="scss">
