@@ -2,7 +2,7 @@
   <div class="steps">
 
     <div class="steps-content">
-      <div class="steps-content-dot">
+      <div class="steps-content-dot" :class="$store.state.currentStep === stepProp.id ? 'steps-content-dot-active' : ''">
         <div class="steps-content-dot-number">
           <span>
             {{stepProp.id}}
@@ -52,6 +52,11 @@ const props = defineProps({
       font-weight:bold;
       font-size:24px;
       margin-right:20px;
+
+      &-active{
+        background-color:$cardinal;
+        color:$white;
+      }
 
       &-number{
         width:32px;
