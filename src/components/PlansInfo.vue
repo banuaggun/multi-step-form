@@ -3,20 +3,23 @@
     <h1>Select Your Plan</h1>
     <p>You have the option of monthly or yearly billing.</p>
   </div>
-  <form>
+  <form @submit.prevent="validateForm">
 
-    <div class="forms">
+    <div class="forms-plan">
 
-      <div class="forms-area-select" v-for="item in planList" :key="item.id">
+      <div class="forms-plan-area-select" v-for="item in planList" :key="item.id">
 
-        <input type="radio" class="forms-area-select-input" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
-        <label :for="item.inputID" class="forms-area-select-label">
+        <input type="radio" class="forms-plan-area-select-input" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
+        <label :for="item.inputID" class="forms-plan-area-select-label">
 
-          <img :src="item.planImage" :alt="item.planName" class="forms-area-label-image">
+          <img :src="item.planImage" :alt="item.planName" class="forms-plan-area-label-image">
             
-          <div class="forms-area-select-label-text">
+          <div class="forms-plan-area-select-label-text">
             <p>{{item.planName}}</p>
-            <span>{{item.planPrice.monthly}}/mo</span>
+            <span v-if="!$store.state.newUser.formBill">${{item.planPrice.monthly}}/mo</span>
+            <span v-if="$store.state.newUser.formBill">${{item.planPrice.yearly}}</span>
+            <br>
+            <span v-if="$store.state.newUser.formBill" class="span-promo">2 months free</span>
           </div>
         </label>
   
@@ -24,11 +27,11 @@
 
     </div>
 
-    <div class="form-group-bill-plan forms-group">
-      <div class="form-group-bill-plan-checkbox forms-group-checkbox">
+    <div class="forms-plan-group">
+      <div class="forms-plan-group-checkbox">
         <p>Monthly</p>
         <div class="switch">
-          <input id="switch-1" type="checkbox" class="switch-input" />
+          <input id="switch-1" type="checkbox" class="switch-input" v-model="formBill" />
           <label for="switch-1" class="switch-label">Switch</label>
         </div>
         <p>Yearly</p>
@@ -36,17 +39,18 @@
     </div>
       
     <div class="forms-buttons">
-      <button class="forms-buttons-secondary forms-buttons-btn">
+      <button class="forms-buttons-secondary forms-buttons-btn" @click.self="goBack">
         Back
       </button>
-      <button class="forms-buttons-primary forms-buttons-btn">
+      <button type="button" class="forms-buttons-primary forms-buttons-btn" @click="validateForm">
         Next
       </button>
     </div>
   </form>
 </template>
 <script setup>
-import { ref } from "vue";
+import store from '../store';
+import { computed, ref } from "vue";
 
 
 const planList = ref([
@@ -81,6 +85,34 @@ const planList = ref([
     inputID:'pro'
   }
 ])
+
+const formPlan = computed({
+  get(){
+    return store.state.newUser.formPlan
+  },
+  set(newPlan){
+    return store.commit('setPlan', newPlan)
+  }
+})
+
+const formBill = computed({
+  get(){
+    return store.state.newUser.formBill
+  },
+  set(newFormBill){
+    return store.commit('setFormBill', newFormBill)
+  }
+})
+
+const goBack = () => {
+  store.state.currentStep--
+}
+
+const validateForm = () => {
+  store.state.currentStep++
+}
+
+
 </script>
 
 <style lang="scss">
@@ -94,12 +126,12 @@ form{
   margin-bottom:0;
   height:100%;
 
-  .forms{
+  .forms-plan{
     display:flex;
     flex-direction:row;
     justify-content:space-between;
     margin-bottom:20px;
-    margin-top:20px;
+   margin-top:20px;
 
     &-area-select{
       border:1px solid $lapis-lazuli;
@@ -233,7 +265,7 @@ form{
   }
 }
 
-input:checked ~ .forms-area-select-label{
+input:checked ~ .forms-plan-area-select-label{
   background-color:$alice-blue;
   color:$white;
 }

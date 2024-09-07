@@ -15,7 +15,18 @@ export default createStore({
       formPhone:{
         phone:'',
         isComplete:false
-      }
+      },
+      formPlan:{
+        id:1,
+        planName:'Arcade',
+        planPrice:{
+          monthly:9,
+          yearly:9*(12-2)
+        },
+        planImage:'src\assets\images\arcade.svg',
+        inputID:'arcade'
+      },
+      formBill:false
     }
   },
   getters:{},
@@ -28,6 +39,12 @@ export default createStore({
     },
     setPhone(state, newPhone){
       state.newUser.formPhone.phone = newPhone
+    },
+    setPlan(state, newPlan){
+      state.newUser.formPlan = newPlan
+    },
+    setFormBill(state, newFormBill){
+      state.newUser.formBill = newFormBill
     }
   },
   actions:{},
