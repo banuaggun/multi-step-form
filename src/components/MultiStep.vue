@@ -1,7 +1,10 @@
 <template>
-<h1>{{$store.state.currentStep}} {{$store.state.newUser.formName.name}}</h1>
   <div class="card">
     <div class="card-steps-container">
+      <Steps v-for="step in steps" :key="step" :stepProp="step" />
+    </div>
+
+    <div class="card-steps-mobile">
       <Steps v-for="step in steps" :key="step" :stepProp="step" />
     </div>
     <div class="card-form-details">
@@ -59,7 +62,7 @@ const steps = [
   width:800px;
   background-color: $white-2;
   border-radius: 16px;
-  box-shadow: 0 4px 30px 5px hsla(0, 0%, 0%, 0.08);
+  //box-shadow: 0 4px 30px 5px hsla(0, 0%, 0%, 0.08);
   padding:10px;
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -80,9 +83,8 @@ const steps = [
   &-form-details{
     position:relative;
     display: flex;
-    flex-direction: column;
-    padding:10px 50px 40px 50px;
-
+    flex-direction:column;
+    padding:0 50px 50px 50px;
     &-description{
       padding-top:25px;
 
@@ -93,10 +95,59 @@ const steps = [
       p{
         color:$black;
         font-size:1rem;
-        margin-bottom:0px;
+        margin-bottom:10px;
       }
     }
   }
 }
 
+//mobile 
+
+@media screen and (max-width:600px){
+  .card{
+    width:100%;
+    grid-template-columns: 1fr;
+    margin:0;
+    padding:0;
+    
+    &-steps-container{
+      display:none;
+    }
+
+    &-steps-mobile{
+      width:100%;
+      height:150px;
+      background-image: url('src/assets/images/bg-mobile.svg');
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center center;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      gap:4px;
+      position:fixed;
+      z-index:2;
+    }
+
+    &-form-details{
+      z-index:1;
+      margin-top:150px;
+      margin-bottom:30px;
+      padding:0 20px 50px 20px;
+
+      &-description{
+        padding-top:10px;
+
+        h1{
+          margin-bottom:5px;
+        }
+
+        p{
+          margin-bottom:5px;
+          font-size:14px;
+        }
+      }
+    }
+  }
+}
 </style>

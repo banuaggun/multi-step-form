@@ -19,6 +19,23 @@
       </div>
     </div>
   </div>
+
+  <div class="steps-mobile">
+    <div class="steps-mobile-content" :class="$store.state.currentStep === stepProp.id ? 'active' : ''">
+      <div class="steps-mobile-content-dot">
+        <div class="steps-mobile-content-dot-number">
+          <span>
+            {{stepProp.id}}
+          </span>
+        </div>
+      </div>
+      <div class="steps-mobile-content-dot-details">
+        <p>
+          {{stepProp.stepTitle}}
+        </p>
+      </div>
+    </div>
+  </div>
 </template>
 <script setup>
 const props = defineProps({
@@ -28,6 +45,66 @@ const props = defineProps({
 <style lang="scss">
 @import "../styles/global/global.sass";
 
+@media screen and (max-width:860px){
+  .steps{
+    display:none;
+  }
+  .steps-mobile{
+    display:flex;
+
+    &-content{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:4px;
+      background-color:$white-2;
+      border-radius:4px 4px 0 0;
+
+      &-dot{
+        width:32px;
+        height:32px;
+        border-radius:50%;
+        border:1px solid $beige;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:$black;
+        font-weight:bold;
+        font-size:14px;
+
+        
+
+        &-number{
+          width:24px;
+          height:24px;
+          border-radius:50%;
+          background:$beige;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+        }
+        
+        &-details{
+        text-transform:uppercase;
+
+        p{
+          color:$text-color;
+          font-size:12px;
+          font-weight:500;
+        }
+      }
+      }
+    }
+  }
+}
+
+.active{
+  background-color:$ghost-white;
+
+}
+
+/*
 .steps{
   width:calc(100% - 60px);
   background:$white-2;
@@ -85,4 +162,6 @@ const props = defineProps({
     }
   }
 }
+
+*/
 </style>
