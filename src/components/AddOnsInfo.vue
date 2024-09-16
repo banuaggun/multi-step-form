@@ -4,36 +4,56 @@
     <p>Add-ons help enhance your going experiment.</p>
   </div>
   <form @submit.prevent="validateStep">
-    <div class="forms">
+    
+    <div class="add-ons-info-mobile">
 
-    <div class="forms-area-check" v-for="item in addOnsList" :key="item.id">
-      <label class="forms-area-check-container" :for="item.addCode">
-        <input type="checkbox" :id="item.addCode" :value="item" v-model="addOns" />
-        <span class="checkbox-icon"></span>
-        <div class="forms-area-check-container-adds-details">
-          <div class="forms-area-check-container-adds-details-text">
-            <p>{{item.addName}}</p>
-            <span>{{item.description}}</span>
+      <div class="add-ons-info-mobile-area">
+
+        <div class="add-ons-info-mobile-area-check" v-for="item in addOnsList" :key="item.id">
+
+        <label :for="item.addCode"  class="add-ons-info-mobile-area-check-container">
+          
+          <input type="checkbox" :id="item.addCode" :value="item" v-model="addOns" />
+
+          <span class="checkbox-icon"></span>
+
+          <div class="add-ons-info-mobile-area-check-container-adds-details">
+
+            <div class="add-ons-info-mobile-area-check-container-adds-details-text">
+              <p>
+                {{item.addName}}
+              </p>
+              <span>
+                {{item.description}}
+              </span>
+            </div>
+
+            <p v-if="!$store.state.newUser.formBill"  class="add-ons-info-mobile-area-check-container-adds-details-price">
+              ${{item.planPrice.monthly}}/mo
+            </p>
+
+            <p v-if="$store.state.newUser.formBill"  class="add-ons-info-mobile-area-check-container-adds-details-price">
+              ${{item.planPrice.yearly}}/yr
+            </p>
           </div>
-          <p v-if="!$store.state.newUser.formBill"  class="forms-area-check-container-adds-details-price">${{item.planPrice.monthly}}/mo</p>
-          <p v-if="$store.state.newUser.formBill" class="forms-area-check-container-adds-details-price">${{item.planPrice.yearly}}</p>
-        </div>
-      </label>
+        </label>
+      </div>
+
+      </div>
+      
+      <div class="add-ons-info-mobile-buttons">
+        <button class="forms-buttons-secondary forms-buttons-btn" @click="$store.state.currentStep--">
+          Back
+        </button>
+        <button class="forms-buttons-primary forms-buttons-btn">
+          Next
+        </button>
+      </div>
     </div>
 
-    </div>
 
-    <div class="forms-buttons">
-      <button @click="$store.state.currentStep--" class="forms-buttons-secondary forms-buttons-btn">
-        Back
-      </button>
-      <button class="forms-buttons-primary forms-buttons-btn">
-        Next
-      </button>
-    </div>
   </form>
 </template>
-
 <script setup>
 import store from '../store'
 import { computed } from "vue"
@@ -88,33 +108,32 @@ const validateStep = () => {
   store.state.isFinished = true
 }
 </script>
-
 <style lang="scss">
 @import '../styles/global/global.sass';
-form{
-  display:flex;
+
+.add-ons-info-mobile{
+  display: flex;
   flex-direction: column;
-  justify-content:space-between;
-  position:relative;
-  margin-bottom:0;
+  justify-content: space-between;
+  position: relative;
   height:100%;
-
-  .forms{
-    display:flex;
+  
+  &-area{
+    display: flex;
     flex-direction: column;
-    margin-bottom:20px;
-    margin-top:30px;
+    margin-bottom: 20px;
+    margin-top: 30px;
 
-    &-area-check{
-      display:block;
+    &-check{
+      display: block;
       position:relative;
-      cursor:pointer;
+      cursor: pointer;
       border:1px solid $light-beige;
       padding:15px 20px;
       border-radius:8px;
       background:$ghost-white;
       margin-bottom:10px;
-      
+
       &-container{
         cursor: pointer;
 
@@ -177,64 +196,32 @@ form{
           }
         }
       }
-
-    }
-
-    &-buttons{
-      width:100%;
-      display:flex;
-      justify-content: space-between;
-      align-content:flex-end;
-      align-items:center;
     }
   }
- 
+
+  &-buttons{
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-
-.forms-area-check-container:hover input ~ .checkbox-icon{
-  background: $white;
+.add-ons-info-mobile-area-check-container:hover input ~ .checkbox-icon{
+  background:$white;
 }
 
-.forms-area-check-container input:checked ~ .checkbox-icon{
+.add-ons-info-mobile-area-check-container input:checked ~ .checkbox-icon{
   background:$lapis-lazuli;
+  border:none;
 }
 
-.forms-area-check-container input:checked ~ .checkbox-icon::after{
+.add-ons-info-mobile-area-check-container input:checked ~ .checkbox-icon::after{
   opacity:1;
   transform: rotate(45deg);
 }
 
-.forms-area-check-container input:checked ~ .checkbox-icon{
-  border:none;
-}
-
-.forms-area-check:has(input:checked){
+.add-ons-info-mobile-area-check:has(input:checked){
   background:$alice-blue;
   border:1px solid $beige;
 }
 
-/*
-.form-group-check-container:hover + input ~ .checkbox-icon{
-  background:$cool-gray;
-}
-
-.form-group-check-container + input:checked ~ .checkbox-icon{
-  background:$beige;
-}
-
-.checkbox-icon::after{
-  content:"";
-  position: absolute;
-  opacity:0;
-}
-.form-group-check-container input:checked ~ .checkbox-icon::after{
-  opacity:1;
-  transform:rotate(45deg);
-}
-
-.form-group-check-container input:checked ~.checkbox-icon{
-  border:0;
-}
-*/
 </style>
