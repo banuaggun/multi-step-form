@@ -159,6 +159,7 @@ const validateForm = () => {
   &-buttons{
     display:flex;
     justify-content: space-between;
+    margin-top:20px;
   }
 }
 

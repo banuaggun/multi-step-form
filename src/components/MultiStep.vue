@@ -67,6 +67,10 @@ const steps = [
   display: grid;
   grid-template-columns: 260px 1fr;
 
+  &-steps-mobile{
+    display:none;
+  }
+
   &-steps-container{
     width:260px;
     height:100%;
@@ -117,7 +121,7 @@ const steps = [
     &-steps-mobile{
       width:100%;
       height:150px;
-      background-image: url('src/assets/images/bg-mobile.svg');
+      background-image: url('src/assets/images/bg-mobile.png');
       background-repeat:no-repeat;
       background-size:cover;
       background-position:center center;
@@ -125,7 +129,9 @@ const steps = [
       align-items:flex-end;
       justify-content:center;
       gap:4px;
-      position:fixed;
+      position:absolute;
+      left:0;
+      top:0;
       z-index:2;
     }
 
@@ -136,7 +142,7 @@ const steps = [
       padding:0 20px 50px 20px;
 
       &-description{
-        padding-top:10px;
+        padding-top:20px;
 
         h1{
           margin-bottom:5px;

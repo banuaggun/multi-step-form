@@ -45,7 +45,7 @@ const props = defineProps({
 <style lang="scss">
 @import "../styles/global/global.sass";
 
-@media screen and (max-width:860px){
+@media screen and (max-width:600px){
   .steps{
     display:none;
   }
@@ -104,7 +104,12 @@ const props = defineProps({
 
 }
 
-/*
+@media screen and (min-width:601px){
+
+.steps-mobile{
+  display:none;
+}
+
 .steps{
   width:calc(100% - 60px);
   background:$white-2;
@@ -163,5 +168,5 @@ const props = defineProps({
   }
 }
 
-*/
+}
 </style>
