@@ -24,7 +24,7 @@
               </span>
             
               <span v-if="$store.state.newUser.formBill">
-                ${{item.planPrice.yearly}}
+                ${{item.planPrice.yearly}}/yr
               </span>
             </div>
 
@@ -129,71 +129,59 @@ const validateForm = () => {
 @import "../styles/global/global.sass";
 
 .plans-info-mobile{
-  margin-top:20px;
-  margin-bottom:20px;
-  width:100%;
-  height:100%;
   display:flex;
-  flex-direction: column;
-  justify-content:space-between;
-  position:relative;
-  
+  flex-direction:row;
+  flex-wrap:wrap;
+  margin-top:20px;
+  margin-bottom: 20px;
+  gap:8px;
+
   &-area{
-    display:flex;
+    display: flex;
     flex-direction: row;
-    align-items:center;
-    justify-content:space-between;
-    width:calc(100% - 20px);
-    margin:5px auto;
     position:relative;
-    cursor:pointer;
+    justify-content: space-between;
+    margin-bottom:40px;
 
+    &-input{
+      position:absolute;
+      width:130px;
+      height:130px;
+      opacity:0;
+    }
 
-      &-input{
-        position:absolute;
-        width:100%;
-        height:100%;
-        right:0px;
-        top:0px;
-        opacity:0;
+    &-label{
+      border:1px solid red; 
+      width:120px;
+      height:120px;
+      border:1px solid $beige;
+      border-radius:8px;
+      padding:8px;
+      display:flex;
+      flex-direction:column;
+      justify-content: space-between;
+
+      img{
+        width:44px;
+        height:44px;
       }
 
-
-      &-label{
-        display:flex;
-        align-content:center;
-        align-items:center;
-        justify-content: space-between;
+      &-text{
         text-align:left;
-        width:100%;
-        height:60px;
-        padding:10px;
-        cursor:pointer;
-        border-radius:8px;
-        border:1px solid $beige;
 
-        img{
-          width:36px;
-          height:36px;
+        p{
+          color:$lapis-lazuli;
+          font-size:1rem;
+          font-weight:500;
         }
 
-        &-text{
+        span{
           color:$text-color;
-          text-align:left;
-          width:35%;
-
-          p{
-            font-size:14px;
-            font-weight:500;
-          }
-
-          span{
-            font-size:14px;
-            font-weight:600;
-          }
+          font-size:1.03rem;
+          font-weight:600;
         }
-
       }
+    }
   }
 
   &-switch{
@@ -256,11 +244,11 @@ const validateForm = () => {
         -webkit-transition: left 0.25s ease;
         transition: left 0.25s ease;
       }
-      
+        
       .switch-input:checked + .switch-label::before {
         background-color: $stone-1;
       }
-      
+        
       .switch-input:checked + .switch-label::after {
         left: 24px;
       }
@@ -272,10 +260,165 @@ const validateForm = () => {
     display:flex;
     justify-content:space-between;
     margin-top:40px;
+    width:100%;
   }
 }
 
-input:checked ~ .plans-info-mobile-area-label{
+
+
+@media screen and (max-width:600px){
+  .plans-info-mobile{
+    margin-top:20px;
+    margin-bottom:20px;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    position:relative;
+    
+    &-area{
+      display:flex;
+      flex-direction: row;
+      align-items:center;
+      justify-content:space-between;
+      width:calc(100% - 20px);
+      margin:5px auto;
+      position:relative;
+      cursor:pointer;
+
+
+        &-input{
+          position:absolute;
+          width:100%;
+          height:100%;
+          right:0px;
+          top:0px;
+          opacity:0;
+        }
+
+
+        &-label{
+          display:flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          text-align:left;
+          width:100%;
+          height:60px;
+          padding:10px;
+          cursor:pointer;
+          border-radius:8px;
+          border:1px solid $beige;
+
+          img{
+            width:36px;
+            height:36px;
+          }
+
+          &-text{
+            color:$text-color;
+            text-align:left;
+            width:35%;
+
+            p{
+              font-size:14px;
+              font-weight:500;
+            }
+
+            span{
+              font-size:14px;
+              font-weight:600;
+            }
+          }
+
+        }
+    }
+
+    &-switch{
+      display:flex;
+      justify-content:center;
+      padding: 10px 0;
+      margin:10px auto;
+
+      &-checkbox{
+        display:flex;
+        align-items:center;
+        gap:16px;
+        cursor:pointer;
+
+        .switch{
+          position:relative;
+          display: inline-block;
+        }
+
+        .switch-input{
+          display:none;
+        }
+
+        .switch-label{
+          display:block;
+          width:48px;
+          height:24px;
+          text-indent: -150%;
+          clip:rect(0 0 0 0);
+          color:transparent;
+          user-select:none;
+        }
+
+        .switch-label::before, 
+        .switch-label::after {
+          content: "";
+          display: block;
+          position: absolute;
+          cursor: pointer;
+        }
+
+        .switch-label::before {
+          width: 100%;
+          height: 100%;
+          background-color: $light-beige;
+          border-radius: 9999em;
+          -webkit-transition: background-color 0.25s ease;
+          transition: background-color 0.25s ease;
+        }
+
+        .switch-label::after {
+          top: 0;
+          left: 0;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: $ghost-white;
+          border:0.5px solid $cool-gray;
+          box-shadow: 0 0 2px $cool-gray;
+          -webkit-transition: left 0.25s ease;
+          transition: left 0.25s ease;
+        }
+        
+        .switch-input:checked + .switch-label::before {
+          background-color: $stone-1;
+        }
+        
+        .switch-input:checked + .switch-label::after {
+          left: 24px;
+        }
+
+      }
+    }
+
+    &-buttons{
+      display:flex;
+      justify-content:space-between;
+      margin-top:40px;
+    }
+  }
+}
+
+
+input:checked ~ .plans-info-mobile-area-label, 
+input:checked ~ .plans-info-web-select-area-label{
   background-color: $beige;
 }
 </style>

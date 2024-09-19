@@ -62,7 +62,7 @@ const steps = [
   width:800px;
   background-color: $white-2;
   border-radius: 16px;
-  //box-shadow: 0 4px 30px 5px hsla(0, 0%, 0%, 0.08);
+  box-shadow: 0 4px 30px 5px hsla(0, 0%, 0%, 0.08);
   padding:10px;
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -113,6 +113,7 @@ const steps = [
     grid-template-columns: 1fr;
     margin:0;
     padding:0;
+    box-shadow: none;
     
     &-steps-container{
       display:none;
