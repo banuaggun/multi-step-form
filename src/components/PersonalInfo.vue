@@ -20,7 +20,7 @@
 
         <div class="personal-info-area-edit-validation">
           <label for="email">Email</label>
-          <span v-if="$store.state.newUser.formName.isComplete">This field is required</span>
+          <span v-if="$store.state.newUser.formEmail.isComplete">This field is required</span>
         </div>
         <input class="personal-info-area-edit-input" type="text" id="email" :class="$store.state.newUser.formEmail.isComplete ? 'required' : 'personal-info-area-edit-input'" v-model="email" @keydown="isTyping" placeholder="ariadoe@mail.com">
       </div>
@@ -29,7 +29,7 @@
 
         <div class="personal-info-area-edit-validation">
           <label for="phone">Phone</label>
-          <span v-if="$store.state.newUser.formName.isComplete">This field is required</span>
+          <span v-if="$store.state.newUser.formPhone.isComplete">This field is required</span>
         </div>
         <input class="personal-info-area-edit-input" type="number" id="phone" :class="$store.state.newUser.formPhone.isComplete ? 'required' : 'personal-info-area-edit-input'" v-model="phone" @keydown="isTyping">
       </div>
