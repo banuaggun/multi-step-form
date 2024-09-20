@@ -91,6 +91,17 @@ const addOnsList = [
       monthly:2,
       yearly:2*(12-2)
     }
+  },
+  {
+    id:4,
+    addName:'No Add Ons',
+    addValue:'ao4',
+    addCode:'noAddOns',
+    description:'I do not want to add any plugins.',
+    planPrice:{
+      monthly:0,
+      yearly:0*(12-2)
+    }
   }
 ]
 
@@ -202,6 +213,8 @@ const validateStep = () => {
   &-buttons{
     display: flex;
     justify-content: space-between;
+    margin-top:40px;
+    
   }
 }
 
