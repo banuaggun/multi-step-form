@@ -75,13 +75,11 @@ const steps = [
     width:260px;
     height:100%;
     border-radius:10px;
-    background-image: url('src/assets/images/bg.svg');
     display:flex;
     flex-direction:column;
     align-items: center;
     align-content:center;
     justify-content:center;
-    background-size: cover;
   }
 
   &-form-details{
