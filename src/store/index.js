@@ -23,7 +23,7 @@ export default createStore({
           monthly:9,
           yearly:9*(12-2)
         },
-        planImage:'.\assets\images\arcade.svg',
+        planImage:'src\assets\images\arcade.svg',
         inputID:'arcade'
       },
       formBill:false,

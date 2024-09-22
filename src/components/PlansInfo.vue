@@ -72,7 +72,7 @@ const planList = ref([
       monthly:9,
       yearly:9*(12-2)
     },
-    planImage:'src/assets/images/arcade.svg',
+    planImage:'../assets/images/arcade.svg',
     inputID:'arcade'
   },
   {
@@ -82,7 +82,7 @@ const planList = ref([
       monthly:12,
       yearly:9*(12-2)
     },
-    planImage:'src/assets/images/advanced.svg',
+    planImage:'../assets/images/advanced.svg',
     inputID:'advanced'
   },
   {
@@ -92,7 +92,7 @@ const planList = ref([
       monthly:15,
       yearly:9*(12-2)
     },
-    planImage:'src/assets/images/pro.svg',
+    planImage:'../assets/images/pro.svg',
     inputID:'pro'
   }
 ])

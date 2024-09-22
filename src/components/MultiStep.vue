@@ -120,10 +120,6 @@ const steps = [
     &-steps-mobile{
       width:100%;
       height:150px;
-      background-image: url('src/assets/images/bg-mobile.png');
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:center center;
       display:flex;
       align-items:flex-end;
       justify-content:center;

@@ -8,4 +8,10 @@
   background-image: url('assets/images/bg-mobile.png');
   background-size:cover;
   background-repeat:no-repeat;
+  background-position: center center;
+}
+
+img.plans-info-mobile-area-label-image{
+  width:44px;
+  height:44px;
 }
