@@ -10,9 +10,9 @@
 
           <input type="radio" class="plans-info-mobile-area-input" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
 
-          <label for="item.inputID" class="plans-info-mobile-area-label">
+          <label :for="item.inputID" class="plans-info-mobile-area-label">
 
-            <img :src="item.planImage" :alt="item.planName" class="plans-info-mobile-area-label-image">
+            <img :src="`/image/${item.planImage}`" :alt="item.planName" class="plans-info-mobile-area-label-image">
             
             <div class="plans-info-mobile-area-label-text">
               <p>
@@ -72,7 +72,7 @@ const planList = ref([
       monthly:9,
       yearly:9*(12-2)
     },
-    planImage:'../assets/images/arcade.svg',
+    planImage:'arcade.svg',
     inputID:'arcade'
   },
   {
@@ -82,7 +82,7 @@ const planList = ref([
       monthly:12,
       yearly:9*(12-2)
     },
-    planImage:'../assets/images/advanced.svg',
+    planImage:'advanced.svg',
     inputID:'advanced'
   },
   {
@@ -92,7 +92,7 @@ const planList = ref([
       monthly:15,
       yearly:9*(12-2)
     },
-    planImage:'../assets/images/pro.svg',
+    planImage:'pro.svg',
     inputID:'pro'
   }
 ])
@@ -114,6 +114,7 @@ const formBill = computed({
     return store.commit('setFormBill', newFormBill)
   }
 })
+
 
 const goBack = () => {
   store.state.currentStep--
