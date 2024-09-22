@@ -1,8 +1,8 @@
 <template>
   <div class="steps">
 
-    <div class="steps-content">
-      <div class="steps-content-dot" :class="$store.state.currentStep === stepProp.id ? 'steps-content-dot-active' : ''">
+    <div class="steps-content" :class="$store.state.currentStep === stepProp.id ? 'active' : ''">
+      <div class="steps-content-dot">
         <div class="steps-content-dot-number">
           <span>
             {{stepProp.id}}
@@ -100,9 +100,10 @@ const props = defineProps({
 }
 
 .active{
-  background-color:$ghost-white;
-
+  background-color:$white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
+
 
 @media screen and (min-width:601px){
 
@@ -130,15 +131,12 @@ const props = defineProps({
       display:flex;
       align-items:center;
       justify-content:center;
-      color:$black;
+      color:$text-color;
       font-weight:bold;
       font-size:24px;
       margin-right:20px;
 
-      &-active{
-        background-color:$cardinal;
-        color:$white;
-      }
+     
 
       &-number{
         width:32px;
@@ -169,4 +167,5 @@ const props = defineProps({
 }
 
 }
+
 </style>

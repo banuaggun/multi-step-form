@@ -146,7 +146,7 @@ const validateForm = () => {
         padding:8px 16px;
         border-radius:4px;
         border:1px solid $text-color;
-        color:$lapis-lazuli;
+        color:$text-color;
 
         &:focus{
           border:1px solid $text-color;

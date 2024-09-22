@@ -151,10 +151,9 @@ const validateForm = () => {
     }
 
     &-label{
-      border:1px solid red; 
       width:120px;
       height:120px;
-      border:1px solid $beige;
+      border:1px solid $stone-2;
       border-radius:8px;
       padding:8px;
       display:flex;
@@ -170,13 +169,13 @@ const validateForm = () => {
         text-align:left;
 
         p{
-          color:$lapis-lazuli;
+          color:$text-color;
           font-size:1rem;
           font-weight:500;
         }
 
         span{
-          color:$text-color;
+          color:$black;
           font-size:1.03rem;
           font-weight:600;
         }
@@ -288,52 +287,52 @@ const validateForm = () => {
       cursor:pointer;
 
 
-        &-input{
-          position:absolute;
-          width:100%;
-          height:100%;
-          right:0px;
-          top:0px;
-          opacity:0;
+      &-input{
+        position:absolute;
+        width:100%;
+        height:100%;
+        right:0px;
+        top:0px;
+        opacity:0;
+      }
+
+
+      &-label{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        text-align:left;
+        width:100%;
+        height:60px;
+        padding:10px;
+        cursor:pointer;
+        border-radius:8px;
+        border:1px solid $beige;
+
+        img{
+          width:36px;
+          height:36px;
         }
 
-
-        &-label{
-          display:flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          align-items: center;
+        &-text{
+          color:$text-color;
           text-align:left;
-          width:100%;
-          height:60px;
-          padding:10px;
-          cursor:pointer;
-          border-radius:8px;
-          border:1px solid $beige;
+          width:35%;
 
-          img{
-            width:36px;
-            height:36px;
+          p{
+            font-size:14px;
+            font-weight:500;
           }
 
-          &-text{
-            color:$text-color;
-            text-align:left;
-            width:35%;
-
-            p{
-              font-size:14px;
-              font-weight:500;
-            }
-
-            span{
-              font-size:14px;
-              font-weight:600;
-            }
+          span{
+            font-size:14px;
+            font-weight:600;
           }
-
         }
+
+      }
     }
 
     &-switch{

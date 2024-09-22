@@ -21,7 +21,7 @@
                 </span>
               </p>
 
-              <a role="button" @click="goStep2">
+              <a role="button" class="change-link" @click="goStep2">
                 Change
               </a>
 
@@ -129,26 +129,31 @@ const handleMessage = () => {
 .summary-mobile{
   display:flex;
   flex-direction: column;
-  margin-top:20px;
+  margin-top:10px;
 
   &-area{
     display:flex;
     flex-direction: column;
 
     &-select{
-      background-color:white;
+      background-color:$ghost-white;
       display: flex;
       flex-direction: column;
-      border:1px solid $black;
+      border:1px solid $stone-2;
       padding:8px 24px;
       border-radius:8px;
 
       &-bill-state{
-        border-bottom:3px solid $lapis-lazuli;
+        border-bottom:3px solid $beige;
         padding:8px;
         margin-bottom:20px;
         display:flex;
         justify-content: space-between;
+
+        .change-link{
+          color:$cardinal;
+          font-weight:500;
+        }
       }
 
       &-add{
@@ -163,15 +168,14 @@ const handleMessage = () => {
           justify-content: space-between;
           padding:8px;
           margin-bottom:10px;
-          border-bottom:1px solid $lapis-lazuli;
+          border-bottom:1px solid $beige;
         }
       }
 
     }
 
     &-total{
-      background: $cool-gray;
-      border-radius:8px;
+      background: $ghost-white;
       display:flex;
       flex-direction: column;
       justify-content: space-between;
@@ -182,7 +186,7 @@ const handleMessage = () => {
       p{
         font-weight:700;
         font-size:1.2rem;
-        color:$lapis-lazuli;
+        color:$black;
       }
 
       &-price{
@@ -196,7 +200,7 @@ const handleMessage = () => {
     &-buttons{
       display:flex;
       justify-content: space-between;
-      margin-top:40px;
+      margin-top:25px;
      
     }
   }

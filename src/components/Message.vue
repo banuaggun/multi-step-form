@@ -1,8 +1,9 @@
 <template>
   <div class="confirm-message">
-    <img src="../assets/vue.svg" :alt="message.header" />
+    <img src="../assets/images/message-2.svg" style="width:100px; height:100px" :alt="message.header" />
     <h1>{{message.header}}</h1>
     <p>{{message.messageText}}</p>
+    <a href="/" target="_top">Return to Home Page</a>
   </div>
 </template>
 <script setup>
@@ -23,7 +24,7 @@ const message = {
   justify-content:center;
 
   img{
-    margin:0 auto 30px auto;
+    margin:20px auto 20px auto;
     display:block;
   }
 
@@ -36,8 +37,18 @@ const message = {
   p{
     text-align:center;
     line-height: 25px;
-    color:$cool-gray;
+    color:$text-color-2;
     font-size:16px;
+  }
+
+  a{
+    margin-top:20px;
+    color:$cardinal;
+    font-weight:500;
+    font-size:1rem;
+    padding-bottom:3px;
+    text-decoration: none;
+    border-bottom:2px solid $cardinal;
   }
 }
 

@@ -133,7 +133,7 @@ const validateStep = () => {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
 
     &-check{
       display: block;
@@ -190,12 +190,12 @@ const validateStep = () => {
           &-text{
             p{
               font-weight:bold;
-              color:$lapis-lazuli;
+              color:$text-color-2;
               margin-bottom:3px;
             }
 
             span{
-              color:$cool-gray;
+              color:$text-color-2;
               font-size:14px;
             }
           }
@@ -203,7 +203,7 @@ const validateStep = () => {
           &-price{
             font-size:14px;
             font-weight:400;
-            color:$lapis-lazuli;
+            color:$text-color;
           }
         }
       }
@@ -213,7 +213,7 @@ const validateStep = () => {
   &-buttons{
     display: flex;
     justify-content: space-between;
-    margin-top:40px;
+    margin-top:0px;
     
   }
 }
@@ -223,8 +223,8 @@ const validateStep = () => {
 }
 
 .add-ons-info-mobile-area-check-container input:checked ~ .checkbox-icon{
-  background:$lapis-lazuli;
-  border:none;
+  background:$beige;
+  border:1px solid $beige;
 }
 
 .add-ons-info-mobile-area-check-container input:checked ~ .checkbox-icon::after{
@@ -233,8 +233,8 @@ const validateStep = () => {
 }
 
 .add-ons-info-mobile-area-check:has(input:checked){
-  background:$alice-blue;
-  border:1px solid $beige;
+  background:$btncolor;
+  border:1px solid $stone-5;
 }
 
 </style>

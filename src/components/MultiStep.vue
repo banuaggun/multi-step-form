@@ -88,9 +88,9 @@ const steps = [
     position:relative;
     display: flex;
     flex-direction:column;
-    padding:0 50px 50px 50px;
+    padding:0 50px 0px 50px;
     &-description{
-      padding-top:25px;
+      padding-top:20px;
 
       h1{
         margin-bottom:10px;
