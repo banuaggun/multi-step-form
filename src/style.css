@@ -3,3 +3,9 @@
   background-size:cover;
   background-repeat:no-repeat;
 }
+
+.card-steps-mobile{
+  background-image: url('assets/images/bg-mobile.png');
+  background-size:cover;
+  background-repeat:no-repeat;
+}
